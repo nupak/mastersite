@@ -213,7 +213,7 @@ class scientist(AbstractBaseUser):
         if self.phone and self.hide_phone == False:
             phone = f"<div class='balloon-content_info__line'><span class='image phone'></span><span class='text'>{str(self.phone)}</span></div>"
         lines = "<div class='balloon-content_info'>" + lineBigregandReg + academicDegree + speciality + phone + email + "</div>"
-        more = f"<a class='more-info' href='/scientists/profile/{self.pk}'>Подробнее</a>"
+        more = f"<a class='more-info' href='/profile/{self.pk}'>Подробнее</a>"
         example = "<div class='balloon-content'>" + FioandImage + lines + more + "</div>"
         return example
 
