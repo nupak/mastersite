@@ -183,16 +183,18 @@ class scientist(AbstractBaseUser):
         return (okrugListName[BG])
 
     def getjsonShort2(self):
-        image = SITE_NAME+str(self.image.url)
+        image = SITE_NAME + str(self.image.url)
         lineBigregandReg = ""
         academicDegree = ""
         speciality = ""
         email = ""
         phone = ""
         lines = ""
-
+        print()
+        # if str(self.patronymic) !='' and str(self.patronymic) != None:
         if str(self.patronymic):
-            fio = "<span class='name'>" + str(self.name) + " " + str(self.patronymic) + " " + str(self.surname) + "</span>"
+            fio = "<span class='name'>" + str(self.name) + " " + str(self.patronymic) + " " + str(
+                self.surname) + "</span>"
         else:
             fio = "<span class='name'>" + str(self.name) + " " + str(self.surname) + "</span>"
         FioandImage = f"<div class='balloon-content_person'><img src='{image}' alt='person' /><span class='name'>{fio}</span></div>"
@@ -206,12 +208,13 @@ class scientist(AbstractBaseUser):
             academicDegree = f"<div class='balloon-content_info__line'><span class='image academicDegree'></span><span class='text'>{str(self.academicDegree)}</span></div>"
         if self.codeSpeciality:
             speciality = f"<div class='balloon-content_info__line'><span class='image expertise'></span><span class='text'><span class='text'>{str(self.codeSpeciality)}</span></span></div>"
-        if self.email and self.hide_email==False:
-            email = f"<div class='balloon-content_info__line'><span class='image phone'></span><span class='text'>{str(self.email)}</span></div>"
-        if self.phone and self.hide_phone==False:
+        if self.email and self.hide_email == False:
+            email = f"<div class='balloon-content_info__line'><span class='image email'></span><span class='text'>{str(self.email)}</span></div>"
+        if self.phone and self.hide_phone == False:
             phone = f"<div class='balloon-content_info__line'><span class='image phone'></span><span class='text'>{str(self.phone)}</span></div>"
-        lines = "<div class='balloon-content_info'>" + lineBigregandReg + academicDegree + speciality + phone + email +  "</div>"
-        example = "<div class='balloon-content'>" + FioandImage + lines + "</div>"
+        lines = "<div class='balloon-content_info'>" + lineBigregandReg + academicDegree + speciality + phone + email + "</div>"
+        more = f"<a class='more-info' href='/scientists/profile/{self.pk}'>Подробнее</a>"
+        example = "<div class='balloon-content'>" + FioandImage + lines + more + "</div>"
         return example
 
     def __str__(self):
