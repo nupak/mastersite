@@ -275,9 +275,8 @@ class newsSer(models.Model):
 @receiver(post_save,sender = scientist,)
 def update_profile (sender,instance, **kwargs):
     print("signal")
-    this = scientist.objects.get(pk=instance.pk)
-    this.ymapshortcut = instance.getjsonShort2()
-
+    instance.ymapshortcut = instance.getjsonShort2()
+    scientist.objects.filter(pk=instance.pk).update(ymapshortcut=instance.ymapshortcut)
 
 #post_save.connect(update_profile, sender=, dispatch_uid ='Create new scentist')
 

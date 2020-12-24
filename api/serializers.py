@@ -71,15 +71,14 @@ class profileUpdateDetailSerializer(serializers.ModelSerializer):
                 m2m_fields.append((attr, value))
             else:
                 setattr(instance, attr, value)
-        instance.ymapshortcut = instance.getjsonShort2()
+        #instance.ymapshortcut = instance.getjsonShort2()
         print(instance.image)
-        #if instance.image:
-        this = scientist.objects.get(id=instance.id)
-        #    print(this.image)
-        #    if this.image != instance.image:
-        #        this.image.delete(save=False)
+        if instance.image:
+            this = scientist.objects.get(id=instance.id)
+            if this.image != instance.image:
+                this.image.delete(save=False)
         this.image = instance.image
-
+        print("HI i'am here agin")
         instance.save()
 
 

@@ -132,7 +132,7 @@ class get_or_createСhatRoom(generics.CreateAPIView):
         Создание комнаты чата
     """
     def post(self, request, *args, **kwargs):
-        print(type(request.POST.get("user1_id")))
+        print(request.POST.get("user1_id"))
         user1 = request.POST.get("user1_id")
         user2 = request.POST.get("user2_id")
         print(user1)

@@ -204,6 +204,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
 
 
        timestamp = calculate_timestamp(timezone.now())
+       print(timestamp)
        print("ChatConsumer: chat_message", {"command": "send",
                                             "username": event["username"],
                                             "user_id": event["user_id"],

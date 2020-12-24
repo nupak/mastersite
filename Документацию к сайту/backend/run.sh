@@ -9,7 +9,6 @@ static_local="$(pwd)"/$static
 
 rm -rf $static_local
 mkdir -p $static_local
-rm -rf $media_local
 mkdir -p $media_local
 
 docker build -t $name .
@@ -23,11 +22,10 @@ docker volume create --driver local \
 	--opt device=$static_local \
 	--opt o=bind $static
 
-docker volume rm $media || true
 docker volume create --driver local \
 	--opt type=none \
 	--opt device=$media_local \
-	--opt o=bind $media
+	--opt o=bind $media || true
 
 docker run -d --name $name --network 'host' \
 	-v $static:/usr/src/app/$static \
