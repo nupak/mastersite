@@ -272,10 +272,11 @@ class newsSer(models.Model):
         return news.objects.count()
 
 
-@receiver(pre_save,sender = scientist,)
+@receiver(post_save,sender = scientist,)
 def update_profile (sender,instance, **kwargs):
     print("signal")
     instance.ymapshortcut = instance.getjsonShort2()
+    instance.save()
 
 
 #post_save.connect(update_profile, sender=, dispatch_uid ='Create new scentist')
