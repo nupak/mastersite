@@ -247,7 +247,7 @@ class news(models.Model):
     date = models.DateField('Дата публикации', default=django.utils.timezone.now)
     headLine = models.CharField('Название новости', max_length=256)
     announce_text = models.TextField('Текст для анонса', max_length=512, blank=True)
-    text = models.TextField('Текст новости', max_length=4096)
+    text = models.TextField('Текст новости', max_length=8192)
     image = models.ImageField(upload_to='images/news/', blank=False, default="images/news/default.png")
 
     @property

@@ -79,7 +79,7 @@ class NewDetailSet(generics.RetrieveAPIView):
       Вывод для одной новости по ее индексу
     """
     queryset = news.objects.all().order_by('-id')
-    serializer_class = newsPreviewSerializer
+    serializer_class = newDetailSerializer
 
 
 #===># Вьюхи для точек на карте  <====
