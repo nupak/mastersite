@@ -191,6 +191,8 @@ class scientist(AbstractBaseUser):
         phone = ""
         lines = ""
         print()
+        if self.is_staff == True:
+            self.Bigregion ='cfo'
         # if str(self.patronymic) !='' and str(self.patronymic) != None:
         if str(self.patronymic):
             fio = "<span class='name'>" + str(self.name) + " " + str(self.patronymic) + " " + str(
