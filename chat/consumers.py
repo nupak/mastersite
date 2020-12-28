@@ -181,10 +181,6 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
             #append_unread_msg_if_not_connected(room, room.user2, connected_users, message),
             create_room_chat_message(room, self.scope["user"], message)
         ])
-        print("Send Room",{"type": "chat.message",
-                "username": self.scope["user"].name,
-                "user_id": self.scope["user"].id,
-                "message": message})
         await self.channel_layer.group_send(
             room.group_name,
             {
@@ -194,7 +190,9 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
                 "message": message,
             }
         )
+        self.scope["user"]
         await roomlistConsumer.send_list(self.scope["user"])
+
 
     async def chat_message(self, event):
        """
@@ -203,7 +201,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
        # Send a message down to the client
 
 
-       timestamp = timezone.now()
+       timestamp = str(timezone.now())
        await self.send_json(
            {
                "command":"send",
