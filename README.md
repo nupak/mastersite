@@ -44,7 +44,7 @@ DATABASES = {
 В папке проекта scientistSite:
 gunicorn --bind 0.0.0.0:8000 scientistSite.wsgi
 
--Если ошибка запуска юникорн, то запустить
+-Если ошибка запуска юникорн, то запустить /n
 lsof -i:8000
 Остановить процессы на порте
 kill -9 id_proces
