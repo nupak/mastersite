@@ -15,8 +15,8 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
       'http://localhost:3000',
         'http://localhost:8000',
-        'http://165.22.27.247:8000',
-        'http://165.22.27.247:3000',
+        'http://IPсайта:8000',
+        'http://IPсайта:3000',
 ]
 
 -Запуск сервера Для запуска в режиме теста/продакшн : DEBUG = TRUE/FALSE
@@ -40,14 +40,10 @@ DATABASES = {
 
 -Запуск локального сервера для проверки после клонирования с репозитории(по умолчанию localhost:8000) python3 manage.py runserver
 
--На сервере через wsgi через unicorn
-В папке проекта scientistSite:
-gunicorn --bind 0.0.0.0:8000 scientistSite.wsgi
 
--Если ошибка запуска юникорн, то запустить /n
-lsof -i:8000
-Остановить процессы на порте
-kill -9 id_proces
+-Если ошибка запуска юникорн, то запустить  lsof -i:8000
+
+-Остановить процессы на порте kill -9 id_proces
 
 
 
