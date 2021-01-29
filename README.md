@@ -3,15 +3,18 @@
 
 Установить виртуальной окружение с версией python 3.8+
 venv/bin/activate
+
 -Все необходимые модули в файле requirements.txt pip freeze -r requirements.txt
 
 -Настройки названия сайта и находятся в папке 
 scientistSite -> settings.py
+
 SITE_NAME = 'https://домен_сайта'
 
 ALLOWED_HOSTS = [SITE_NAME]
 
 CORS_ORIGIN_ALLOW_ALL = False
+
 CORS_ORIGIN_WHITELIST = [
       'http://localhost:3000',
         'http://localhost:8000',
@@ -27,6 +30,7 @@ scientistSete -> settings.py
 DB_NAME = ""
 DB_USER = ""
 DB_PASSWORD = ""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -39,6 +43,9 @@ DATABASES = {
 }
 
 -Запуск локального сервера для проверки после клонирования с репозитории(по умолчанию localhost:8000) python3 manage.py runserver
+
+Создать супер Юзера!
+python3 manage.py createsuperuser
 
 
 -Если ошибка запуска юникорн, то запустить  lsof -i:8000
